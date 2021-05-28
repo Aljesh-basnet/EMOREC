@@ -1,6 +1,5 @@
 Django==3.2
 google-auth==1.30.0
-# gunicorn==20.1.0
 nltk==3.6.1
 numpy==1.18.5
 pandas==1.2.4
