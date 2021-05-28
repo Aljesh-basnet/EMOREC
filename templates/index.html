@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>EMOREC</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">EMOREC</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Emotions</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">EMOREC</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Let the emotion unfold.</h2>
+                <a class="btn btn-primary js-scroll-trigger" href="#about">Try EMOREC</a>
+            </div>
+        </div>
+    </header>
+    <div class="alignment">
+
+    </div>
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+
+                    <p class="text-white-50">
+                        EmoRec works by returning the emotion of the text entered by the user from the category
+                        of joy, sadness, anger, fear, love and suprise.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                <form class="form-inline d-flex" method="POST" action="predict#about" >
+                    {% csrf_token %}
+                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" name="sentence"
+                        placeholder="Enter your text" required/>
+                    <button type="submit" class="btn btn-primary mx-auto js-scroll-trigger" >Submit</button>
+                    
+                </form>
+                {% if sentence %} 
+                   
+                <h2 class="text-white mb-5 text-center">The sentence was "{{sentence}}"</h2>
+                <h2 class="text-white mb-5 text-center">The emotion predicted by the system was {{emotion}}</h2>
+               
+                {% endif %}
+            </div>
+            
+             <!-- <img class="img-fluid" src="{% static 'assets/img' %}" alt="" /> -->
+        </div>
+    </section>
+    <!-- Emotions-->
+    <section class="projects-section text-center" >
+        <div class="container"id="projects">
+            <!-- Featured Emotion Row-->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0"
+                        src="{% static 'assets/img/happy.jpg' %}" alt=".." /></div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Joy</h4>
+                        <p class="text-black-50 mb-0">Joy requires you to be in the moment and enjoy your fullest.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Featured Emotion second Row-->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0"
+                        src="{% static 'assets/img/love.jpg' %}" alt="" /></div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Love</h4>
+                        <p class="text-black-50 mb-0">Love requires you to be greatful for the thing
+                             that triggered the feeling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Emotion One Row-->
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/sad.jpg' %}" alt="" /></div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Sadness</h4>
+                                <p class="mb-0 text-white-50">Sadness requires that you take action to let go of
+                                    something that is not working anyway.</p>
+                                <hr class="d-none d-lg-block mb-0 ml-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emotion Two Row-->
+            <div class="row justify-content-center no-gutters">
+                <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/angry.jpg' %}" alt="" /></div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white">Anger</h4>
+                                <p class="mb-0 text-white-50">Anger requires that you take action to protect or restore
+                                    your sense of self or your standpoint or that of others.</p>
+                                <hr class="d-none d-lg-block mb-0 mr-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Emotion Three Row-->
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/fear.jpg' %}" alt="" /></div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Fear</h4>
+                                <p class="mb-0 text-white-50">Fear requires that you take action to 
+                                    orient to change and novelty or to avoid physical hazards.</p>
+                                <hr class="d-none d-lg-block mb-0 ml-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <!-- Signup-->
+
+
+
+    <section class="signup-section" id="signup">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto text-center">
+                    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                    {% if email %}
+
+                    <h2 class="text-white mb-5">
+                        Thanks for subscribing. User with email {{email}}. Do check your email.
+                    </h2>
+
+                    {%else%}
+
+                    <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+                    <form class="form-inline d-flex" method="POST" action="save#signup" >
+                        {% csrf_token %}
+                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" required
+                            type="email" name="email" placeholder="Enter email address..." />
+                        <button class="btn btn-primary mx-auto" type="submit" >Subscribe</button>
+                    </form>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact-->
+    <section class="contact-section bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Address</h4>
+                            <hr class="my-4" />
+                            <div class="small text-black-50">Chabahil, Kathmandu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Email</h4>
+                            <hr class="my-4" />
+                            <div class="small text-black-50"><a
+                                    href="mailto:basnetaljesh05@gmail.com">basnetaljesh05@gmail.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Phone</h4>
+                            <hr class="my-4" />
+                            <div class="small text-black-50">+977 9866313335</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-flex justify-content-center">
+                <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50">
+        <div class="container">Copyright © EMOREC 2020</div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+
+</html>
